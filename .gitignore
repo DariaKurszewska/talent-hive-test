@@ -1,0 +1,35 @@
+# Ignore Maven target directory
+/target/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+
+# Ignore Eclipse project files
+/.classpath
+/.project
+/.settings/
+
+# Ignore Java class files
+*.class
+
+# Ignore Maven wrapper files
+.mvn/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Ignore local settings
+settings.xml
+
+# Ignore IDE-specific files
+*.iml
+*.ipr
+*.iws
+
+# Ignore logs
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore .env files
+.env
