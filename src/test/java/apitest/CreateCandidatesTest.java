@@ -58,4 +58,18 @@ public class CreateCandidatesTest {
 
         System.out.println("New candidate created with ID: " + candidateId);
     }
+
+    @AfterAll
+    public static void cleanUp() {
+
+        Response response = given()
+                .when()
+                .delete("/" + candidateId)
+                .then()
+                .statusCode(204)
+                .log()
+                .all()
+                .extract()
+                .response();
+    }
 }
