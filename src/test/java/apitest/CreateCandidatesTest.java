@@ -2,6 +2,7 @@ package apitest;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,7 @@ import static org.hamcrest.Matchers.notNullValue;
 public class CreateCandidatesTest {
 
     private static final String BASE_URL = "http://localhost:8080/api/v1/candidates";
+    private static int candidateId;
 
     @BeforeEach
     public void setUp() {
@@ -45,9 +47,14 @@ public class CreateCandidatesTest {
                 .statusCode(201)
                 .body("id", notNullValue())
                 .body("name", equalTo("John Doe"))
+                .body("email", equalTo("johndoe@example.com"))
+                .body("positionApplied", equalTo("Software Engineer"))
+                .body("status", equalTo("Interview Scheduled"))
+                .body("interviewDate", equalTo("2024-12-31T10:00:00.000+00:00"))
+                .body("recruiter", equalTo("Jane Smith"))
                 .extract().response();
 
-        var candidateId = response.path("id");
+        candidateId = response.path("id");
 
         System.out.println("New candidate created with ID: " + candidateId);
     }
