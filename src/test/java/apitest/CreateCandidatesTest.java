@@ -62,14 +62,12 @@ public class CreateCandidatesTest {
     @AfterAll
     public static void cleanUp() {
 
-        Response response = given()
+        given()
                 .when()
                 .delete("/" + candidateId)
                 .then()
                 .statusCode(204)
                 .log()
-                .all()
-                .extract()
-                .response();
+                .all();
     }
 }
