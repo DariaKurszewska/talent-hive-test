@@ -1,35 +1,33 @@
 package model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import com.google.gson.annotations.SerializedName;
 
 @Getter
 @Setter
 @ToString
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Candidate {
 
-    @JsonProperty("id")
+    @SerializedName("id")
     private int id;
 
-    @JsonProperty("name")
+    @SerializedName("name")
     private String name;
 
-    @JsonProperty("email")
+    @SerializedName("email")
     private String email;
 
-    @JsonProperty("positionApplied")
+    @SerializedName("positionApplied")
     private String positionApplied;
 
-    @JsonProperty("status")
+    @SerializedName("status")
     private String status;
 
-    @JsonProperty("interviewDate")
+    @SerializedName("interviewDate")
     private String interviewDate;
 
-    @JsonProperty("recruiter")
+    @SerializedName("recruiter")
     private String recruiter;
 }
