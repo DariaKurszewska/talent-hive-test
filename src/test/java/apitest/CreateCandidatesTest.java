@@ -2,13 +2,10 @@ package apitest;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import model.Candidate;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -27,18 +24,17 @@ public class CreateCandidatesTest {
     @Test
     public void testCreateCandidateAndExtractId() {
 
-        String candidateData;
+        Candidate candidate = new Candidate();
+        candidate.setName("John Doe");
+        candidate.setEmail("johndoe@example.com");
+        candidate.setPositionApplied("Software Engineer");
+        candidate.setStatus("Interview Scheduled");
+        candidate.setInterviewDate("2025-12-31T10:00:00.000+00:00");
+        candidate.setRecruiter("Jane Smith");
 
-        try {
-            candidateData = new String(Files.readAllBytes(Paths.get("src/test/resources/create-candidate.json")));
-        } catch (IOException e) {
-            System.out.println("Error reading the file: " + e.getMessage());
-            return;
-        }
-
-        Response response = given()
+                Response response = given()
                 .contentType("application/json")
-                .body(candidateData)
+                .body(candidate)
                 .when()
                 .post("/create")
                 .then()
@@ -50,7 +46,7 @@ public class CreateCandidatesTest {
                 .body("email", equalTo("johndoe@example.com"))
                 .body("positionApplied", equalTo("Software Engineer"))
                 .body("status", equalTo("Interview Scheduled"))
-                .body("interviewDate", equalTo("2024-12-31T10:00:00.000+00:00"))
+                .body("interviewDate", equalTo("2025-12-31T10:00:00.000+00:00"))
                 .body("recruiter", equalTo("Jane Smith"))
                 .extract().response();
 
