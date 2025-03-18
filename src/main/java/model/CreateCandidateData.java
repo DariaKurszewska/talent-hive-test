@@ -1,7 +1,6 @@
 package model;
 
 import com.github.javafaker.Faker;
-import model.Candidate;
 
 public class CreateCandidateData {
 
@@ -9,7 +8,6 @@ public class CreateCandidateData {
 
     public static Candidate generateCandidate() {
         Candidate candidate = new Candidate();
-
         candidate.setName(faker.name().fullName());
         candidate.setEmail(faker.internet().emailAddress());
         candidate.setPositionApplied(faker.job().title());
