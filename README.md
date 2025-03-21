@@ -43,10 +43,6 @@ To execute the tests, follow these steps:
    ```bash
    mvn test
    ```
-
-## Implemented Tests
-Currently, the test suite includes:
-
 ## Implemented Tests
 Currently, the test suite includes:
 
