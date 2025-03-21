@@ -5,7 +5,7 @@ This repository contains automated tests for the [Talent Hive Service](https://g
 ## Purpose of the Project
 This project was created as part of my learning journey in API testing with Java. Initially, I performed manual API testing using Postman, and now I am developing my skills in automating REST API tests.
 
-### What have I learned?
+### What do I want to learn?
 - Writing API tests in Java using RestAssured.
 - Structuring tests with JUnit 5.
 - Automating API tests as part of the CI/CD process.
@@ -43,11 +43,11 @@ To execute the tests, follow these steps:
    ```bash
    mvn test
    ```
-
 ## Implemented Tests
 Currently, the test suite includes:
 
-- **POST /api/v1/candidates/create** - Adds a new candidate and verifies the response.
+- **POST /api/v1/candidates/create** – Happy path test for adding a new candidate and verifying the response.
+- **PUT /api/v1/candidates/{id}** – Happy path test for updating candidate information and verifying the response.
 
 ## Example Test
 Here is an example of a test that adds a new candidate:
