@@ -42,7 +42,7 @@ public class UpdateCandidatesTest {
         updateCandidate.setId(candidate.getId());
         updateCandidate.setEmail(candidate.getEmail());
 
-        log.info("Updating candidate with data: {}", updateCandidate.toString());
+        log.info("Updating candidate with data: {}", updateCandidate);
 
         given()
                 .contentType("application/json")

@@ -59,7 +59,7 @@ public class GetCandidatesByIDTest {
     }
 
     private void createCandidateToRetrieve() {
-        log.info("Creating candidate with data: {}", candidate.toString());
+        log.info("Creating candidate with data: {}", candidate);
 
         Response response = given()
                 .contentType("application/json")
