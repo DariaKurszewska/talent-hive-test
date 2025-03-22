@@ -48,6 +48,7 @@ Currently, the test suite includes:
 
 - **POST /api/v1/candidates/create** – Happy path test for adding a new candidate and verifying the response.
 - **PUT /api/v1/candidates/{id}** – Happy path test for updating candidate information and verifying the response.
+- **GET /api/v1/candidates/{id}** – Happy path test for retrieving a candidate by ID and verifying the response.
 
 ## Example Test
 Here is an example of a test that adds a new candidate:
