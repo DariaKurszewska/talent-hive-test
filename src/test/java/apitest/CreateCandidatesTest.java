@@ -15,7 +15,6 @@ import static org.hamcrest.Matchers.notNullValue;
 
 @Slf4j
 public class CreateCandidatesTest {
-
     private static final String BASE_URL = "http://localhost:8080/api/v1/candidates";
     private Candidate candidate;
 
