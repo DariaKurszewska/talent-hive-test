@@ -13,7 +13,6 @@ import static org.hamcrest.Matchers.notNullValue;
 
 @Slf4j
 public class UpdateCandidatesTest {
-
     private static final String BASE_URL = "http://localhost:8080/api/v1/candidates";
     private Candidate candidate;
     private Candidate updateCandidate;
@@ -23,32 +22,6 @@ public class UpdateCandidatesTest {
         RestAssured.baseURI = BASE_URL;
         candidate = CreateCandidateData.generateCandidate();
         createCandidateForUpdate();
-    }
-
-    public void createCandidateForUpdate() {
-        log.info("Creating candidate with data: {}", candidate.toString());
-
-        Response response = given()
-                .contentType("application/json")
-                .body(candidate)
-                .when()
-                .post("/create")
-                .then()
-                .log()
-                .all()
-                .statusCode(201)
-                .body("id", notNullValue())
-                .body("name", equalTo(candidate.getName()))
-                .body("email", equalTo(candidate.getEmail()))
-                .body("positionApplied", equalTo(candidate.getPositionApplied()))
-                .body("status", equalTo(candidate.getStatus()))
-                .body("interviewDate", equalTo(candidate.getInterviewDate()))
-                .body("recruiter", equalTo(candidate.getRecruiter()))
-                .extract().response();
-
-        candidate.setId(response.path("id"));
-
-        log.info("New candidate created with ID: {}", candidate.getId());
     }
 
     @AfterEach
@@ -89,5 +62,31 @@ public class UpdateCandidatesTest {
                 .body("recruiter", equalTo(updateCandidate.getRecruiter()));
 
         log.info("Candidate updated with ID: {}", updateCandidate.getId());
+    }
+
+    private void createCandidateForUpdate() {
+        log.info("Creating candidate with data: {}", candidate.toString());
+
+        Response response = given()
+                .contentType("application/json")
+                .body(candidate)
+                .when()
+                .post("/create")
+                .then()
+                .log()
+                .all()
+                .statusCode(201)
+                .body("id", notNullValue())
+                .body("name", equalTo(candidate.getName()))
+                .body("email", equalTo(candidate.getEmail()))
+                .body("positionApplied", equalTo(candidate.getPositionApplied()))
+                .body("status", equalTo(candidate.getStatus()))
+                .body("interviewDate", equalTo(candidate.getInterviewDate()))
+                .body("recruiter", equalTo(candidate.getRecruiter()))
+                .extract().response();
+
+        candidate.setId(response.path("id"));
+
+        log.info("New candidate created with ID: {}", candidate.getId());
     }
 }
