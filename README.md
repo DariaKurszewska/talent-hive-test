@@ -1,3 +1,14 @@
+Project Status / Learning Progress
+
+Important note
+This project was created at the beginning of my API testing journey (around 9 months ago) and reflects my first steps in automating REST API tests in Java.
+
+Since then, I have significantly improved my skills and architecture approach.
+
+👉 A newer, more advanced API test suite is available here:
+https://github.com/DariaKurszewska/jsonplaceholder-api-tests
+---
+
 # Talent Hive Service - API Testing
 
 This repository contains automated tests for the [Talent Hive Service](https://github.com/kkurszewski/talent-hive-service) API. The purpose of this project is to practice API testing in Java using automated tools, as a next step after manual testing in Postman.
